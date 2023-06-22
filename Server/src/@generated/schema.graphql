@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserDto {
+  password: String!
+  username: String!
+}
+
+type Data {
+  car: String!
+  date: String!
+  grandPrix: String!
+  laps: String!
+  time: String!
+  winner: String!
+}
+
+type DataF1 {
+  data: [Data!]!
+  year: String!
+}
+
+type LoginResponse {
+  access_token: String!
+  user: User!
+}
+
+input LoginUserInputDto {
+  password: String!
+  username: String!
+}
+
+type Mutation {
+  create(body: CreateUserDto!): User!
+  login(loginUserInput: LoginUserInputDto!): LoginResponse!
+  signup(loginUserInput: LoginUserInputDto!): User!
+}
+
+type Query {
+  getAllData: [DataF1!]!
+  getDataByYear(year: String!): DataF1!
+  getDataUserInYearByGrand(grand: String!, year: String!): [Data!]!
+  getDataUserInYearByLaps(lap: String!, year: String!): [Data!]!
+  getDataUserInYearWinnerName(winnerName: String!, year: String!): [Data!]!
+  getGrandPrixInYear(year: String!): [String!]!
+  user(username: String!): User!
+  users: [User!]!
+}
+
+type User {
+  id: ID!
+  password: String!
+  username: String!
+}
