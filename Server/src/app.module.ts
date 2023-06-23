@@ -8,7 +8,8 @@ import { AuthModule } from './auth/auth.module';
 import { User } from './user/entities/user.entity';
 import { dataf1 } from './f1/entities/f1.entity';
 import { F1Module } from './f1/f1.module';
-import { data } from './f1/entities/data.entity';
+import { driverdata } from './driver/entities/driver_in_year.entity';
+import { DriverModule } from './driver/driver.module';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { data } from './f1/entities/data.entity';
       url: process.env.DB_URI,
       synchronize: true,
       useUnifiedTopology: true,
-      entities: [User, dataf1],
+      entities: [User, dataf1, driverdata],
     }),
     GraphQLModule.forRootAsync<ApolloDriverConfig>({
       driver: ApolloDriver,
@@ -41,6 +42,7 @@ import { data } from './f1/entities/data.entity';
     UserModule,
     AuthModule,
     F1Module,
+    DriverModule,
   ],
   controllers: [],
   providers: [],

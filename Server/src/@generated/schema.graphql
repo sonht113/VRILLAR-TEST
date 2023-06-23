@@ -21,6 +21,19 @@ type DataF1 {
   year: String!
 }
 
+type Driver {
+  car: String!
+  driver: String!
+  nationality: String!
+  point: String!
+  position: String!
+}
+
+type DriverInYear {
+  data: [Driver!]!
+  year: String!
+}
+
 type LoginResponse {
   access_token: String!
   user: User!
@@ -46,6 +59,7 @@ type Query {
   getDataUserInYearWinnerName(winnerName: String!, year: String!): [Data!]!
   getGrandPrixInYear(year: String!): [String!]!
   queryData(grandPrix: String!, lap: String!, winnerName: String!, year: String!): [Data!]!
+  queryDriverAllYear(driver: String!): [DriverInYear!]!
   user(username: String!): User!
   users: [User!]!
 }
