@@ -6,6 +6,9 @@ import { GET_ALL_GRAND, QUERY_DATA } from './gql/query/f1-data';
 import Form from './components/Form';
 import ListInfo from './components/Table';
 import { F1 } from './types/f1.type';
+import { QUERY_DRIVER_IN_YEARS, QUERY_ALL_DRIVER } from './gql/query/driver';
+import { DriverInYears } from './types/driver';
+import Graphic from './components/Graphic';
 
 function App() {
   const [yearDefault, setYearDefault] = useState<string>('2023');
@@ -39,6 +42,14 @@ function App() {
     }
   );
 
+  const { data: driverAllYear } = useQuery<{
+    queryDriverAllYear: DriverInYears;
+  }>(QUERY_DRIVER_IN_YEARS, {
+    variables: {
+      driver: '',
+    },
+  });
+
   return (
     <div className='App'>
       <Typography
@@ -60,6 +71,11 @@ function App() {
           yearDefault={yearDefault}
           dataTable={dataQuery?.queryData}
         />
+
+        <Typography style={{ marginTop: '100px', marginBottom: '50px' }}>
+          Graphic to position of driver{' '}
+        </Typography>
+        <Graphic />
       </Container>
     </div>
   );
