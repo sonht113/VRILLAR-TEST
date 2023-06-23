@@ -39,11 +39,13 @@ type Mutation {
 
 type Query {
   getAllData: [DataF1!]!
+  getAllYear: [String!]!
   getDataByYear(year: String!): DataF1!
   getDataUserInYearByGrand(grand: String!, year: String!): [Data!]!
   getDataUserInYearByLaps(lap: String!, year: String!): [Data!]!
   getDataUserInYearWinnerName(winnerName: String!, year: String!): [Data!]!
   getGrandPrixInYear(year: String!): [String!]!
+  queryData(grandPrix: String!, lap: String!, winnerName: String!, year: String!): [Data!]!
   user(username: String!): User!
   users: [User!]!
 }

@@ -17,6 +17,21 @@ export class F1Resolver {
     return this.f1Service.getAllGrandPrixInYear(year);
   }
 
+  @Query(() => [String])
+  getAllYear() {
+    return this.f1Service.getAllYear();
+  }
+
+  @Query(() => [DataDto])
+  queryData(
+    @Args('year') year: string,
+    @Args('winnerName') winnerName?: string,
+    @Args('grandPrix') grandPrix?: string,
+    @Args('lap') lap?: string,
+  ) {
+    return this.f1Service.queryData(year, winnerName, grandPrix, lap);
+  }
+
   @Query(() => DataF1Dto)
   getDataByYear(@Args('year') year: string) {
     return this.f1Service.getDataByYear(year);

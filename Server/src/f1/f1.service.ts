@@ -15,6 +15,33 @@ export class F1Service {
     return this.dataF1Repository.find();
   }
 
+  async queryData(
+    year: string,
+    winnerName?: string,
+    grandPrix?: string,
+    lap?: string,
+  ): Promise<any> {
+    const result = await this.dataF1Repository.findOne({
+      where: {
+        year,
+      },
+    });
+    let res = result.data;
+    if (winnerName) {
+      res = res.filter((item) => item.winner.includes(winnerName));
+    }
+
+    if (grandPrix) {
+      res = res.filter((item) => item.grandPrix === grandPrix);
+    }
+
+    if (lap) {
+      res = res.filter((item) => item.laps == lap);
+    }
+
+    return res;
+  }
+
   async getAllGrandPrixInYear(year: string): Promise<any> {
     const result = await this.dataF1Repository.findOne({
       where: {
@@ -30,6 +57,15 @@ export class F1Service {
       }
     });
     return grand;
+  }
+
+  async getAllYear(): Promise<any> {
+    const res = await this.dataF1Repository.find();
+    const arr = [];
+    for (const r of res) {
+      arr.push(r.year);
+    }
+    return arr.sort((a: string, b: string) => Number(b) - Number(a));
   }
 
   async getDataByYear(year: string): Promise<dataf1> {
