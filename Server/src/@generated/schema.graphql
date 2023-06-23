@@ -29,6 +29,12 @@ type Driver {
   position: String!
 }
 
+type DriverForGraphic {
+  driver: String!
+  position: String!
+  year: String!
+}
+
 type DriverInYear {
   data: [Driver!]!
   year: String!
@@ -58,8 +64,10 @@ type Query {
   getDataUserInYearByLaps(lap: String!, year: String!): [Data!]!
   getDataUserInYearWinnerName(winnerName: String!, year: String!): [Data!]!
   getGrandPrixInYear(year: String!): [String!]!
+  queryAllDriver: [String!]!
   queryData(grandPrix: String!, lap: String!, winnerName: String!, year: String!): [Data!]!
   queryDriverAllYear(driver: String!): [DriverInYear!]!
+  queryDriverDataForGraphic(driverName: String!): [DriverForGraphic!]!
   user(username: String!): User!
   users: [User!]!
 }
