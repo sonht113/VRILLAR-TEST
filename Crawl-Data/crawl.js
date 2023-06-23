@@ -69,7 +69,7 @@ const crawlDataDriverResult = async (url, year) => {
       const arr = [];
       let $ = cheerio.load(body);
       $(".resultsarchive-table>tbody>tr").each(function (index) {
-        const position = $(this).find(":nth-child(2)").text();
+        const position = $(this).find(":nth-child(2)").html();
         const driver =
           $(this).find(":nth-child(3)>a>span:nth-child(1)").text() +
           " " +
