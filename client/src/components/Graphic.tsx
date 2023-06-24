@@ -47,7 +47,7 @@ export default function Graphic() {
           }),
           Plot.text(
             data?.queryDriverDataForGraphic,
-            Plot.selectLast({
+            Plot.selectFirst({
               x: 'year',
               y: 'position',
               text: 'driver',
