@@ -12,7 +12,8 @@
 ### 👉 Step-2: Import data to mongodb
 - For window:
   <p><i>1/ Download MongoDB Command Line Database Tools Download at <a>https://www.mongodb.com/try/download/database-tools</a>. Then setup the environment in "Edit the system environment variables"</i></p>
-  <p><i>2/ Open cmd and run "mongoimport --jsonArray --uri mongodb+srv://<USERNAME>:<PASSWORD>@cluster0.otcckm4.mongodb.net/<DATABASE-NAME> --collection <COLLECTION-NAME> --type <FILETYPE> --file <PATH-YOUR-FILE-DATA-JSON>"</i></p>
+  <p><i>2/ Open cmd and run: mongoimport --jsonArray --uri mongodb+srv://[USERNAME]:[PASSWORD]@cluster0.otcckm4.mongodb.net/[DATABASE-NAME] --collection [COLLECTION-NAME] --type [FILETYPE] --file [PATH-YOUR-FILE-DATA-JSON]</i></p> 
+  
 
 ### 👉 Step-3: Run Server:
 
